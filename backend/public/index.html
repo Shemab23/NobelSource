@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nobel Source API Docs</title>
+  <link rel="styleSheet" href="./styles.css">
+</head>
+
+<body>
+  <h1>Nobel Source API Docs</h1>
+  <div id="tabs"></div>
+
+  <div>
+    <p id="progress"></p>
+    <div id="docs"></div>
+  </div>
+
+  <!-- Reusable blueprint template for endpoints -->
+  <template id="card-template">
+    <div class="endpoint-card">
+      <div class="endpoint-header">
+        <h3 class="endpoint-title"></h3>
+        <span class="status-badge"></span>
+      </div>
+
+      <p class="description"></p>
+      <button class="toggle-details-btn">Show Specs</button>
+
+      <div class="details-content collapsed">
+        <div class="doc-section">
+          <h4>Headers</h4>
+          <pre><code class="headers-data"></code></pre>
+        </div>
+        <div class="doc-section">
+          <h4>Path Params</h4>
+          <pre><code class="params-data"></code></pre>
+        </div>
+        <div class="doc-section">
+          <h4>Query Params</h4>
+          <pre><code class="query-data"></code></pre>
+        </div>
+        <div class="doc-section">
+          <h4>Body</h4>
+          <pre><code class="body-data"></code></pre>
+        </div>
+        <div class="doc-section">
+          <h4>Response</h4>
+          <pre><code class="response-data"></code></pre>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script type="module" src="./doc.js"></script>
+</body>
+</html>

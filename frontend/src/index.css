@@ -1,0 +1,102 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/instrument-sans";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* 1. LAYOUT & SURFACES */
+  --background: rgb(246, 249, 251);
+  --foreground: oklch(25% 0.02 240);
+  --card: oklch(99% 0.003 240);
+  --card-foreground: oklch(25% 0.02 240);
+  --muted: oklch(86.191% 0.02241 239.61);
+  --muted-foreground: oklch(55% 0.02 240);
+  --border: oklch(90% 0.02 245);
+
+  /* 2. BRAND & ACTIONS */
+  --primary: oklch(55% 0.12 48.998);
+  --primary-foreground: oklch(99% 0.01 48);
+  --secondary: oklch(40% 0.08 245);
+  --secondary-foreground: oklch(98% 0.01 245);
+  --accent: oklch(92% 0.06 85);
+  --accent-foreground: oklch(35% 0.08 85);
+
+  /* 3. CUSTOM TEXT TOKENS */
+  --txt-primary: var(--primary);
+  --txt-cta: oklch(75% 0.12 85);
+  --txt-default: oklch(19.616% 0.002 286.056);
+}
+
+.dark {
+  --background: oklch(18% 0.02 245);
+  --foreground: oklch(94% 0.01 245);
+  --card: oklch(22% 0.02 245);
+  --card-foreground: oklch(94% 0.01 245);
+  --muted: oklch(26% 0.02 245);
+  --muted-foreground: oklch(70% 0.02 245);
+  --border: oklch(32% 0.03 245);
+
+  --primary: oklch(65% 0.14 49);
+  --secondary: oklch(35% 0.08 245);
+  --txt-primary: oklch(45% 0.08 50);
+  --txt-cta: oklch(70% 0.1 85);
+  --txt-default: oklch(97.696% 0.00595 240.381);
+}
+
+@theme inline {
+  --font-sans: "Instrument Sans Variable", sans-serif;
+  --font-heading: "Inter Variable", sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-txt-primary: var(--txt-primary);
+  --color-txt-cta: var(--txt-cta);
+  --color-txt-default: var(--txt-default);
+
+  --shadow-chamber: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+@layer components {
+  /* Main Container Style */
+  .chamber-surface {
+    @apply rounded-3xl border border-border bg-card shadow-chamber transition-all duration-300;
+  }
+
+  /* Interactive Elements */
+  .interactive-quiet {
+    @apply cursor-pointer transition-colors duration-200 hover:bg-secondary/5 active:scale-[0.98];
+  }
+
+  /* Typography Shortcuts */
+  .heading-chamber {
+    @apply font-heading leading-tight font-black tracking-tighter text-secondary;
+  }
+
+  .label-serious {
+    @apply text-[10px] font-black tracking-[0.25em] text-muted-foreground/80 uppercase;
+  }
+
+  .centered {
+    @apply flex items-center justify-center;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20;
+  }
+}
