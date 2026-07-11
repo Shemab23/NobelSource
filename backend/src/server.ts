@@ -15,6 +15,7 @@ app.use(
     origin: [
       "http://localhost:3000",
       "http://localhost:5173",
+      "http://localhost:5174",// can be deleted as it was to cop up with allot of project i was running, security wise remove it.
       "http://localhost:3001",
     ],
     credentials: true,
